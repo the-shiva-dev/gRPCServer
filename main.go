@@ -8,7 +8,7 @@ func main() {
 
 	service := service.ServiecsInit()
 
-	go service.RealTimeClient.Run()
+	go service.RealtimeChatProvider.Run()
 
 	service.StartgRPCServer()
 

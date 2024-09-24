@@ -1,31 +1,31 @@
 package service
 
 import (
-	"log"
 	"gRPCServer/providers"
 	"gRPCServer/providers/grpcProvider"
 	"gRPCServer/utils"
+	"log"
 )
 
 var GRPCPortAddress = "50000"
 
 type Service struct {
 	// RealTimeClient *grpcProvider.RealtimeHub
-	RealTimeClient providers.RealtimeChatHubProvider
-	GRPC           *grpcProvider.GRPCServer
+	RealtimeChatProvider providers.RealtimeChatHubProvider
+	GRPC                 *grpcProvider.GRPCServer
 }
 
 func ServiecsInit() *Service {
 
 	utils.LogDebug("Server Init", "Starting the server...", "", nil)
 
-	realTimeClient := grpcProvider.NewRealtimeChatProvider()
+	realtimeChatProvider := grpcProvider.NewRealtimeChatProvider()
 
-	newgRPCServer := grpcProvider.GRPCServerProvider("50000", realTimeClient)
+	newgRPCServer := grpcProvider.GRPCServerProvider("50000", realtimeChatProvider)
 
 	return &Service{
-		RealTimeClient: realTimeClient,
-		GRPC:           newgRPCServer,
+		RealtimeChatProvider: realtimeChatProvider,
+		GRPC:                 newgRPCServer,
 	}
 }
 

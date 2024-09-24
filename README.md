@@ -1,0 +1,1 @@
+A simple bi-directional gRPC server for multiple connection of clients holllding them in realtimeHub respond to ping 

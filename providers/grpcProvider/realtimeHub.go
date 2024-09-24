@@ -38,6 +38,7 @@ func (realtimeHub *RealtimeHub) Run() {
 				realtimeHub.clients[clientClient.Name] = newClient
 			}
 			realtimeHub.clients[clientClient.Name] = clientClient
+
 		case clientClient := <-realtimeHub.deregister:
 			delete(realtimeHub.clients, clientClient.Name)
 		case sendToclient := <-realtimeHub.sendToClientName:
